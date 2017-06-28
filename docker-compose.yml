@@ -1,6 +1,6 @@
 version: '2'
 services:
-  hizzquiz:
+  cakephp:
     build: .
     depends_on:
       - mysql
@@ -20,7 +20,7 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     environment:      
-      - MYSQL_DATABASE=hizzquiz
+      - MYSQL_DATABASE=cakephp
       - MYSQL_ROOT_PASSWORD=root
 
 volumes:
