@@ -1,0 +1,27 @@
+version: '2'
+services:
+  hizzquiz:
+    build: .
+    depends_on:
+      - mysql
+    links:
+      - "mysql"
+    ports:
+      - "4000:80"  
+    volumes:
+      - .:/var/www/html/
+    environment:
+      - SECURITY_SALT=ashjg23697sds97139871298ashk  
+      - MYSQL_URL=mysql
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=root
+  mysql:
+    image: mysql:5.6
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:      
+      - MYSQL_DATABASE=hizzquiz
+      - MYSQL_ROOT_PASSWORD=root
+
+volumes:
+  mysql-data:
